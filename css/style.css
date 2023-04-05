@@ -2,6 +2,58 @@
   display: none;
 }
 
-img {
-  width: 40%;
+body {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+body {
+  color: white;
+}
+
+input {
+  all: unset;
+  text-align: center;
+  border-bottom: solid 1px white;
+  margin-bottom: 15px;
+}
+
+input::placeholder {
+  color: white;
+  opacity: 75%;
+}
+
+#logIn {
+  display: none;
+}
+
+#deleteBtn {
+  background-color: transparent;
+  border: none;
+}
+
+#quote :first-child {
+  font-size: larger;
+}
+
+body {
+  margin: auto;
+}
+
+#container {
+  text-align: center;
+  margin-top: 15%;
+}
+
+li {
+  list-style: none;
+  font-weight: bolder;
+  font-size: large;
+}
+
+#todo-form input {
+  width: 250px;
 }
