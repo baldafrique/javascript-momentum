@@ -13,12 +13,16 @@ function saveToDos() {
 function deleteToDo(event) {
   const li = event.target.parentElement;
   li.remove();
+  // li.id is string but toDo.id is number
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  saveToDos();
 }
 
 function paintToDo(newToDo) {
   const li = document.createElement("li");
+  li.id = newToDo.id;
   const span = document.createElement("span");
-  span.innerText = newToDo;
+  span.innerText = newToDo.text;
   const button = document.createElement("button");
   button.innerText = "❌";
   button.addEventListener("click", deleteToDo);
@@ -29,11 +33,14 @@ function paintToDo(newToDo) {
 
 function handleToDoSubmit(event) {
   event.preventDefault();
-  const newToDo = toDoInput.value;
-  toDoInput.value = "";
+  const newToDo = {
+    text: toDoInput.value,
+    id: Date.now(),
+  };
   toDos.push(newToDo);
   paintToDo(newToDo);
   saveToDos();
+  toDoInput.value = "";
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
